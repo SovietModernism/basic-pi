@@ -78,3 +78,10 @@ def wallis(n):
         pi *= x / y
     
     print (pi * 2)
+
+
+# формула мэчина
+def machin():
+    pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
+    
+    print (pi * 4)
