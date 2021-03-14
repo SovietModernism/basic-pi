@@ -29,4 +29,3 @@ ___
 ![](/formulas/machin.svg)
 
 ![](/formulas/taylor.svg)
-___
