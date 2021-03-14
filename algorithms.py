@@ -129,6 +129,20 @@ def wallis(n):
     return pi
 
 
+# первый метод Эйлера для нахождения суммы ряда
+def euler(n):
+    pi = 0.0
+    
+    for i in range(1, n):
+       pi += 1 / pow(i, 2)
+    
+    pi *= 6
+    pi = math.sqrt(pi)
+
+    print ('{0:0.52f}'.format(pi))
+    return pi
+
+
 # базовая формула Мэчина
 def machin():
     pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
