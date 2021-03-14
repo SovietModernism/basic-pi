@@ -46,7 +46,7 @@ def leibniz(n):
             pi -= 4 / x
         x += 2
 
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
 
 
@@ -64,7 +64,7 @@ def madhava(n):
 
     pi *= math.sqrt(12)
     
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
 
 
@@ -80,7 +80,7 @@ def nilakantha(n):
             pi -= 4 / (base * (base+1) * (base+2))
         base += 2
 
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
 
 
@@ -95,7 +95,7 @@ def viete(n):
 
     pi = 2 / pi
 
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
 
 
@@ -116,7 +116,7 @@ def wallis(n):
     
     pi += 2
     
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
 
 
@@ -125,5 +125,5 @@ def machin():
     pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
     pi *= 4
 
-    print (pi)
+    print ('{0:0.52f}'.format(pi))
     return pi
