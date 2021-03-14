@@ -143,9 +143,33 @@ def euler(n):
     return pi
 
 
-# базовая формула Мэчина
-def machin():
-    pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
+# формула Мэчина
+def machin(n):
+    pi = 0.0
+    arc_1 = 0.0
+    arc_2 = 0.0
+    base = 1
+    
+    # раскладываем первый арктангенс в ряд Тейлора
+    for i in range(n):
+        if (i % 2 == 0):
+            arc_1 += pow(1/5, base) / base
+        else:
+            arc_1 -=pow(1/5, base) / base
+        base += 2
+    
+
+    # раскладываем второй арктангенс в ряд Тейлора
+    base = 1
+    for i in range(n):
+        if (i % 2 == 0):
+            arc_2 += pow(1/239, base) / base
+        else:
+            arc_2 -=pow(1/239, base) / base
+        base += 2
+
+    
+    pi = 4 * arc_1 - arc_2
     pi *= 4
 
     print ('{0:0.52f}'.format(pi))
