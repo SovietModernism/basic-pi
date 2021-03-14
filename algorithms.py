@@ -5,7 +5,12 @@ import math
 # измерение скорости работы алгоритма
 def measure(func, n):
     start = time.time()
-    func(n)
+
+    if (n == None):
+        func()
+    else:
+        func(n)
+
     final = time.time() - start
     
     print ("Выполнение алгоритма занято", '{0:0.23f}'.format(final), "секунд.")
@@ -14,7 +19,11 @@ def measure(func, n):
 
 # измерение точности результата
 def compare(func, n):
-    pi = func(n)
+    if (n == None):
+        pi = func()
+    else:
+        pi = func(n)
+
     count = 0
     
     for i in range(50):
@@ -121,13 +130,9 @@ def wallis(n):
 
 
 # базовая формула Мэчина
-def machin(n):
+def machin():
     pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
     pi *= 4
 
     print ('{0:0.52f}'.format(pi))
     return pi
-
-
-
-compare(machin, 0)
