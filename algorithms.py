@@ -120,10 +120,14 @@ def wallis(n):
     return pi
 
 
-# формула Мэчина
-def machin():
+# базовая формула Мэчина
+def machin(n):
     pi = 4 * math.atan(1 / 5) - math.atan(1 / 239)
     pi *= 4
 
     print ('{0:0.52f}'.format(pi))
     return pi
+
+
+
+compare(machin, 0)
