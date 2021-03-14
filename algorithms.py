@@ -17,8 +17,8 @@ def compare(func, n):
     pi = func(n)
     count = 0
     
-    for i in range(15):
-        if str(pi)[i] == str(math.pi)[i]:
+    for i in range(50):
+        if str('{0:0.60f}'.format(pi))[i] == str('{0:0.60f}'.format(math.pi))[i]:
             count += 1
         else:
             break
