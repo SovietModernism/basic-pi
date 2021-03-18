@@ -37,3 +37,7 @@ ___
 * формула кратных рядов
 
 ![](/formulas/multiple_series.svg)
+___
+* формула двойного факториала
+
+![](/formulas/double_factorial.svg)
