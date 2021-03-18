@@ -2,6 +2,14 @@ import time
 import math
 
 
+# вычисление двойного факториала
+def double_factorial(n):
+     if n <= 0:
+         return 1
+     else:
+         return n * double_factorial(n - 2)
+
+
 # измерение скорости работы алгоритма
 def measure(func, n):
     start = time.time()
@@ -187,6 +195,19 @@ def multiple_series(n):
             pi += 1 / pow((4 * j - 2), 2 * i)
     
     pi *= 8
+    
+    print ('{0:0.52f}'.format(pi))
+    return pi
+
+
+# формула двойного факториала
+def double_fact(n):
+    pi = 0.0
+    
+    for i in range(n):
+        pi += math.factorial(i) / double_factorial(2 * i + 1)
+    
+    pi *= 2
     
     print ('{0:0.52f}'.format(pi))
     return pi
