@@ -3,11 +3,11 @@ import math
 
 
 # вычисление двойного факториала
-def double_factorial(n):
+def double_fact_calc(n):
      if n <= 0:
          return 1
      else:
-         return n * double_factorial(n - 2)
+         return n * double_fact_calc(n - 2)
 
 
 # измерение скорости работы алгоритма
@@ -201,11 +201,11 @@ def multiple_series(n):
 
 
 # формула двойного факториала
-def double_fact(n):
+def double_factorial(n):
     pi = 0.0
     
     for i in range(n):
-        pi += math.factorial(i) / double_factorial(2 * i + 1)
+        pi += math.factorial(i) / double_fact_calc(2 * i + 1)
     
     pi *= 2
     
