@@ -174,3 +174,19 @@ def machin(n):
 
     print ('{0:0.52f}'.format(pi))
     return pi
+
+
+# формула кратных рядов
+def multiple_series(n):
+    pi = 0.0
+    k = 1
+    m = 1
+    
+    for i in range(1, n):
+        for j in range(1, n):
+            pi += 1 / pow((4 * j - 2), 2 * i)
+    
+    pi *= 8
+    
+    print ('{0:0.52f}'.format(pi))
+    return pi
