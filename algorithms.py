@@ -39,9 +39,11 @@ def compare(func, n):
         pi = func(n)
 
     count = 0
+    pi = str(pi)
+    pi_real = str(Decimal(math.pi))
     
     for i in range(50):
-        if str(Decimal(pi))[i] == str(Decimal(math.pi))[i]:
+        if pi[i] == pi_real[i]:
             count += 1
         else:
             break
@@ -59,17 +61,17 @@ def compare(func, n):
 
 # ряд Лейбница
 def leibniz(n):
-    pi = 0.0
+    pi = Decimal(0.0)
     x = 1
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += 4 / x
+            pi += Decimal(4 / x)
         else:
-            pi -= 4 / x
+            pi -= Decimal(4 / x)
         x += 2
 
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
