@@ -42,7 +42,7 @@ def compare(func, n):
     pi = str(pi)
     pi_real = str(Decimal(math.pi))
     
-    for i in range(50):
+    for i in range(100):
         if pi[i] == pi_real[i]:
             count += 1
         else:
@@ -77,56 +77,56 @@ def leibniz(n):
 
 # ряд Мадхавы
 def madhava(n):
-    pi = 0.0
+    pi = Decimal(0.0)
     x = 1
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += 1 / (x * pow(3, i))
+            pi += Decimal(1 / (x * pow(3, i)))
         else:
-            pi -= 1 / (x * pow(3, i))
+            pi -= Decimal(1 / (x * pow(3, i)))
         x += 2
 
-    pi *= math.sqrt(12)
+    pi *= Decimal(math.sqrt(12))
     
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # ряд Нилаканта
 def nilakantha(n):
-    pi = 3.0
+    pi = Decimal(3.0)
     base = 2
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += 4 / (base * (base+1) * (base+2))
+            pi += Decimal(4 / (base * (base+1) * (base+2)))
         else:
-            pi -= 4 / (base * (base+1) * (base+2))
+            pi -= Decimal(4 / (base * (base+1) * (base+2)))
         base += 2
 
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # формула Виете
 def viete(n):
-    pi = math.sqrt(2) / 2
-    var = math.sqrt(2)
+    var = Decimal(math.sqrt(2))
+    pi = Decimal(var / 2)
 
     for i in range(n):
-       var = math.sqrt(2 + var)
-       pi *= var / 2
+       var = Decimal(math.sqrt(2 + var))
+       pi *= Decimal(var / 2)
 
-    pi = 2 / pi
+    pi = Decimal(2 / pi)
 
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # формула Валлиса
 def wallis(n):
-    pi = 1.0
+    pi = Decimal(1.0)
     x = 2
     y = 1
     
@@ -137,41 +137,41 @@ def wallis(n):
         if (i % 2 != 0):
             y += 2
 
-        pi *= x / y
+        pi *= Decimal(x / y)
     
     pi += 2
     
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # первый метод Эйлера для нахождения суммы ряда
 def euler(n):
-    pi = 0.0
+    pi = Decimal(0.0)
     
     for i in range(1, n):
-       pi += 1 / pow(i, 2)
+       pi += Decimal(1 / pow(i, 2))
     
     pi *= 6
-    pi = math.sqrt(pi)
+    pi = Decimal(math.sqrt(pi))
 
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # формула Мэчина
 def machin(n):
-    pi = 0.0
-    arc_1 = 0.0
-    arc_2 = 0.0
+    pi = Decimal(0.0)
+    arc_1 = Decimal(0.0)
+    arc_2 = Decimal(0.0)
     base = 1
     
     # раскладываем первый арктангенс в ряд Тейлора
     for i in range(n):
         if (i % 2 == 0):
-            arc_1 += pow(1/5, base) / base
+            arc_1 += Decimal(pow(1/5, base)) / base
         else:
-            arc_1 -=pow(1/5, base) / base
+            arc_1 -= Decimal(pow(1/5, base)) / base
         base += 2
     
 
@@ -179,43 +179,43 @@ def machin(n):
     base = 1
     for i in range(n):
         if (i % 2 == 0):
-            arc_2 += pow(1/239, base) / base
+            arc_2 += Decimal(Decimal(pow(1/239, base)) / base)
         else:
-            arc_2 -=pow(1/239, base) / base
+            arc_2 -= Decimal(Decimal(pow(1/239, base)) / base)
         base += 2
 
     
     pi = 4 * arc_1 - arc_2
     pi *= 4
 
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # формула кратных рядов
 def multiple_series(n):
-    pi = 0.0
+    pi = Decimal(0.0)
     k = 1
     m = 1
     
     for i in range(1, n):
         for j in range(1, n):
-            pi += 1 / pow((4 * j - 2), 2 * i)
+            pi += Decimal(1 / pow((4 * j - 2), 2 * i))
     
     pi *= 8
     
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
 
 
 # формула двойного факториала
 def double_factorial(n):
-    pi = 0.0
+    pi = Decimal(0.0)
     
     for i in range(n):
-        pi += math.factorial(i) / double_fact_calc(2 * i + 1)
+        pi += Decimal(math.factorial(i) / double_fact_calc(2 * i + 1))
     
     pi *= 2
     
-    print ('{0:0.52f}'.format(pi))
+    print (pi)
     return pi
