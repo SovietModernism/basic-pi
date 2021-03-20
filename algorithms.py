@@ -1,6 +1,9 @@
 import time
 import math
 
+from decimal import Decimal, getcontext
+getcontext().prec = 50
+
 
 # вычисление двойного факториала
 def double_fact_calc(n):
@@ -12,16 +15,19 @@ def double_fact_calc(n):
 
 # измерение скорости работы алгоритма
 def measure(func, n):
-    start = time.time()
+    start = Decimal(time.time())
 
     if (n == None):
         func()
     else:
         func(n)
 
-    final = time.time() - start
+    final = Decimal(time.time()) - start
     
-    print ("Выполнение алгоритма занято", '{0:0.23f}'.format(final), "секунд.")
+    if (final == 0):
+        print("Алгоритм выполнился менее, чем за 0E-20 секунд.")
+    else:
+        print ("Выполнение алгоритма занято", final, "секунд.")
     return final
 
 
