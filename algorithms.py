@@ -4,6 +4,9 @@ import math
 from decimal import Decimal, getcontext
 getcontext().prec = 100
 
+# значение Пи с точностью до 100-го знака после запятой
+pi_real = Decimal(3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679)
+
 
 # вычисление двойного факториала
 def double_fact_calc(n):
@@ -32,7 +35,7 @@ def measure(func, n):
 
 
 # измерение точности результата
-def compare(func, n):
+def compare(func, n, pi_real = pi_real):
     if (n == None):
         pi = func()
     else:
@@ -40,7 +43,7 @@ def compare(func, n):
 
     count = 0
     pi = str(pi)
-    pi_real = str(Decimal(math.pi))
+    pi_real = str(pi_real)
     
     for i in range(100):
         if pi[i] == pi_real[i]:
