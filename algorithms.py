@@ -2,7 +2,7 @@ import time
 import math
 
 from decimal import Decimal, getcontext
-getcontext().prec = 50
+getcontext().prec = 100
 
 
 # вычисление двойного факториала
@@ -41,7 +41,7 @@ def compare(func, n):
     count = 0
     
     for i in range(50):
-        if str('{0:0.60f}'.format(pi))[i] == str('{0:0.60f}'.format(math.pi))[i]:
+        if str(Decimal(pi))[i] == str(Decimal(math.pi))[i]:
             count += 1
         else:
             break
