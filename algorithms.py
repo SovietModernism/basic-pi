@@ -1,7 +1,7 @@
 import time
 import math
 
-from decimal import Decimal, getcontext
+from decimal import *
 getcontext().prec = 100
 
 # значение Пи с точностью до 100-го знака после запятой
@@ -90,7 +90,7 @@ def madhava(n):
             pi -= Decimal(1 / (x * pow(3, i)))
         x += 2
 
-    pi *= Decimal(math.sqrt(12))
+    pi *= Decimal(12).sqrt()
     
     print (pi)
     return pi
@@ -114,11 +114,11 @@ def nilakantha(n):
 
 # формула Виете
 def viete(n):
-    var = Decimal(math.sqrt(2))
+    var = Decimal(2).sqrt()
     pi = Decimal(var / 2)
 
     for i in range(n):
-       var = Decimal(math.sqrt(2 + var))
+       var = Decimal(2 + var)
        pi *= Decimal(var / 2)
 
     pi = Decimal(2 / pi)
@@ -156,7 +156,7 @@ def euler(n):
        pi += Decimal(1 / pow(i, 2))
     
     pi *= 6
-    pi = Decimal(math.sqrt(pi))
+    pi = Decimal(pi).sqrt()
 
     print (pi)
     return pi
