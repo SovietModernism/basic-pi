@@ -119,8 +119,8 @@ def viete(n):
     var = Decimal('2').sqrt()
     pi = var / Decimal('2')
 
-    for i in range(n):
-       var = 2 + var
+    for i in range(1, n):
+       var = Decimal(var + 2).sqrt()
        pi *= var / Decimal('2')
 
     pi = Decimal('2') / pi
