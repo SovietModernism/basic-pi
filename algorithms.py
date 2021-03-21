@@ -218,6 +218,3 @@ def double_factorial(n):
     
     print (pi)
     return pi
-
-
-wallis(1000)
