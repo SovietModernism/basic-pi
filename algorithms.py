@@ -132,19 +132,13 @@ def viete(n):
 # формула Валлиса
 def wallis(n):
     pi = Decimal('1.0')
-    x = 2
-    y = 1
+    x = Decimal('1')
     
-    for i in range(n):
-        if (i > 0) and (i % 2 == 0):
-            x += 2
-        
-        if (i % 2 != 0):
-            y += 2
-
-        pi *= Decimal(x) / Decimal(y)
+    for i in range(1, n):
+        pi *= Decimal(4 * x * x) / Decimal(4 * x * x - 1)
+        x += 1
     
-    pi += 2
+    pi *= 2
     
     print (pi)
     return pi
@@ -224,3 +218,6 @@ def double_factorial(n):
     
     print (pi)
     return pi
+
+
+wallis(1000)
