@@ -5,7 +5,7 @@ from decimal import *
 getcontext().prec = 100
 
 # значение Пи с точностью до 100-го знака после запятой
-pi_real = Decimal(3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679)
+pi_real = Decimal('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
 
 
 # вычисление двойного факториала
@@ -64,7 +64,7 @@ def compare(func, n, pi_real = pi_real):
 
 # ряд Лейбница
 def leibniz(n):
-    pi = Decimal(0.0)
+    pi = Decimal('0.0')
     x = 1
     
     for i in range(n):
@@ -80,7 +80,7 @@ def leibniz(n):
 
 # ряд Мадхавы
 def madhava(n):
-    pi = Decimal(0.0)
+    pi = Decimal('0.0')
     x = 1
     
     for i in range(n):
@@ -98,7 +98,7 @@ def madhava(n):
 
 # ряд Нилаканта
 def nilakantha(n):
-    pi = Decimal(3.0)
+    pi = Decimal('3.0')
     base = 2
     
     for i in range(n):
@@ -129,7 +129,7 @@ def viete(n):
 
 # формула Валлиса
 def wallis(n):
-    pi = Decimal(1.0)
+    pi = Decimal('1.0')
     x = 2
     y = 1
     
@@ -150,7 +150,7 @@ def wallis(n):
 
 # первый метод Эйлера для нахождения суммы ряда
 def euler(n):
-    pi = Decimal(0.0)
+    pi = Decimal('0.0')
     
     for i in range(1, n):
        pi += Decimal(1 / pow(i, 2))
@@ -164,9 +164,9 @@ def euler(n):
 
 # формула Мэчина
 def machin(n):
-    pi = Decimal(0.0)
-    arc_1 = Decimal(0.0)
-    arc_2 = Decimal(0.0)
+    pi = Decimal('0.0')
+    arc_1 = Decimal('0.0')
+    arc_2 = Decimal('0.0')
     base = 1
     
     # раскладываем первый арктангенс в ряд Тейлора
@@ -197,7 +197,7 @@ def machin(n):
 
 # формула кратных рядов
 def multiple_series(n):
-    pi = Decimal(0.0)
+    pi = Decimal('0.0')
     k = 1
     m = 1
     
@@ -213,7 +213,7 @@ def multiple_series(n):
 
 # формула двойного факториала
 def double_factorial(n):
-    pi = Decimal(0.0)
+    pi = Decimal('0.0')
     
     for i in range(n):
         pi += Decimal(math.factorial(i) / double_fact_calc(2 * i + 1))
