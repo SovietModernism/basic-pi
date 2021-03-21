@@ -4,8 +4,6 @@ import math
 from decimal import *
 getcontext().prec = 100
 
-# значение Пи с точностью до 100-го знака после запятой
-pi_real = Decimal('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
 
 
 # вычисление двойного факториала
@@ -35,17 +33,21 @@ def measure(func, n):
 
 
 # измерение точности результата
-def compare(func, n, pi_real = pi_real):
+def compare(func, n):
     if (n == None):
         pi = func()
     else:
         pi = func(n)
 
+
     count = 0
     pi = str(pi)
+    
+    # значение Пи с точностью до 100-го знака после запятой
+    pi_real = Decimal('3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679')
     pi_real = str(pi_real)
     
-    for i in range(100):
+    for i in range(101):
         if pi[i] == pi_real[i]:
             count += 1
         else:
