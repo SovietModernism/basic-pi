@@ -67,13 +67,13 @@ def compare(func, n):
 # ряд Лейбница
 def leibniz(n):
     pi = Decimal('0.0')
-    x = 1
+    x = Decimal('1')
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += Decimal(4 / x)
+            pi += Decimal('4') / x
         else:
-            pi -= Decimal(4 / x)
+            pi -= Decimal('4') / x
         x += 2
 
     print (pi)
@@ -87,12 +87,12 @@ def madhava(n):
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += Decimal(1 / (x * pow(3, i)))
+            pi += Decimal('1') / Decimal(x * pow(3, i))
         else:
-            pi -= Decimal(1 / (x * pow(3, i)))
+            pi -= Decimal('1') / Decimal(x * pow(3, i))
         x += 2
 
-    pi *= Decimal(12).sqrt()
+    pi *= Decimal('12').sqrt()
     
     print (pi)
     return pi
@@ -105,9 +105,9 @@ def nilakantha(n):
     
     for i in range(n):
         if (i % 2 == 0):
-            pi += Decimal(4 / (base * (base+1) * (base+2)))
+            pi += Decimal('4') / Decimal(base * (base+1) * (base+2))
         else:
-            pi -= Decimal(4 / (base * (base+1) * (base+2)))
+            pi -= Decimal('4') / Decimal(base * (base+1) * (base+2))
         base += 2
 
     print (pi)
@@ -116,14 +116,14 @@ def nilakantha(n):
 
 # формула Виете
 def viete(n):
-    var = Decimal(2).sqrt()
-    pi = Decimal(var / 2)
+    var = Decimal('2').sqrt()
+    pi = var / Decimal('2')
 
     for i in range(n):
-       var = Decimal(2 + var)
-       pi *= Decimal(var / 2)
+       var = 2 + var
+       pi *= var / Decimal('2')
 
-    pi = Decimal(2 / pi)
+    pi = Decimal('2') / pi
 
     print (pi)
     return pi
@@ -142,7 +142,7 @@ def wallis(n):
         if (i % 2 != 0):
             y += 2
 
-        pi *= Decimal(x / y)
+        pi *= Decimal(x) / Decimal(y)
     
     pi += 2
     
@@ -155,7 +155,7 @@ def euler(n):
     pi = Decimal('0.0')
     
     for i in range(1, n):
-       pi += Decimal(1 / pow(i, 2))
+       pi += Decimal('1') / Decimal(pow(i, 2))
     
     pi *= 6
     pi = Decimal(pi).sqrt()
@@ -169,24 +169,24 @@ def machin(n):
     pi = Decimal('0.0')
     arc_1 = Decimal('0.0')
     arc_2 = Decimal('0.0')
-    base = 1
+    base = Decimal('1')
     
     # раскладываем первый арктангенс в ряд Тейлора
     for i in range(n):
         if (i % 2 == 0):
-            arc_1 += Decimal(pow(1/5, base)) / base
+            arc_1 += pow(Decimal('1') / Decimal('5'), base) / base
         else:
-            arc_1 -= Decimal(pow(1/5, base)) / base
+            arc_1 -= pow(Decimal('1') / Decimal('5'), base) / base
         base += 2
     
 
     # раскладываем второй арктангенс в ряд Тейлора
-    base = 1
+    base = Decimal('1')
     for i in range(n):
         if (i % 2 == 0):
-            arc_2 += Decimal(Decimal(pow(1/239, base)) / base)
+            arc_2 += pow(Decimal('1') / Decimal('239'), base) / base
         else:
-            arc_2 -= Decimal(Decimal(pow(1/239, base)) / base)
+            arc_2 -= pow(Decimal('1') / Decimal('239'), base) / base
         base += 2
 
     
@@ -205,7 +205,7 @@ def multiple_series(n):
     
     for i in range(1, n):
         for j in range(1, n):
-            pi += Decimal(1 / pow((4 * j - 2), 2 * i))
+            pi += Decimal('1') / Decimal(pow((4 * j - 2), 2 * i))
     
     pi *= 8
     
@@ -218,7 +218,7 @@ def double_factorial(n):
     pi = Decimal('0.0')
     
     for i in range(n):
-        pi += Decimal(math.factorial(i) / double_fact_calc(2 * i + 1))
+        pi += Decimal(math.factorial(i)) / Decimal(double_fact_calc(2 * i + 1))
     
     pi *= 2
     
